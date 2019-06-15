@@ -17,7 +17,7 @@ namespace TvMazeScrapper.Models
     {
         //public int id { get; set; }
         public string Name { get; set; }
-        public DateTime? Birthday { get; set; }
+        public DateTime? Birthday { get ; set; }
     }
 
     [Serializable()]

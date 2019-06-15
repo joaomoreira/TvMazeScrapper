@@ -99,15 +99,15 @@ namespace TvMazeScrapper.Controllers
             {
                 try
                 {
-                    if (tvshow.CastMembers == null || tvshow.CastMembers.Count() == 0)
+                    if (tvshow.Cast == null || tvshow.Cast.Count() == 0)
                     {
-                        tvshow.CastMembers = new List<CastMemberModel>();
+                        tvshow.Cast = new List<CastMemberModel>();
                         response = await _client.GetAsync(string.Format("shows/{0}/cast", tvshow.Id));
                         jsonString = await response.Content.ReadAsStringAsync();
-                        tvshow.CastMembers = JsonConvert.DeserializeObject<List<CastMemberModel>>(jsonString);
+                        tvshow.Cast = JsonConvert.DeserializeObject<List<CastMemberModel>>(jsonString);
                     }
 
-                    tvshow.CastMembers = tvshow.CastMembers.OrderByDescending(cm => cm.Person.Birthday).ToList();
+                    tvshow.Cast = tvshow.Cast.OrderByDescending(cm => cm.Person.Birthday).ToList();
                 }
                 catch (Exception ex)
                 {

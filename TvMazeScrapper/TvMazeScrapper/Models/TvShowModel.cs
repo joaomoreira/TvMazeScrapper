@@ -10,13 +10,7 @@ namespace TvMazeScrapper.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<CastMemberModel> CastMembers { get; set; }
-
-        [field: NonSerialized()]
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        [field: NonSerialized()]
-        public DateTime TimeLastLoaded { get; set; }
+        public List<CastMemberModel> Cast { get; set; }
 
     }
 }
